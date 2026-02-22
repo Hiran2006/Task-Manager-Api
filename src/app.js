@@ -3,6 +3,8 @@ const app = express()
 import authRoute from "./routes/auth.routes.js"
 import taskRoute from "./routes/task.routes.js"
 
+app.use(express.json())
+
 app.get("/", (req, res) => {
   res.send("Task Manager Api is running...")
 })

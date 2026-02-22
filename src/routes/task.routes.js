@@ -1,7 +1,7 @@
 import express from "express"
 import {
   createTask,
-  getTask,
+  getTasks,
   updateTask,
   deleteTask,
 } from "../controllers/task.controller.js"
@@ -9,7 +9,7 @@ import {
 const router = express.Router()
 
 router.post("/", createTask)
-router.get("/", getTask)
+router.get("/", getTasks)
 router.put("/:id", updateTask)
 router.delete("/:id", deleteTask)
 

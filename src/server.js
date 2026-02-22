@@ -1,11 +1,13 @@
 import "dotenv/config.js"
 import app from "./app.js"
-const port = process.env.PORT || 5000
 import db from "./config/db.js"
+import { connectRedis } from "./config/redis.js"
 
-const startServer = () => {
+const port = process.env.PORT || 5000
+const startServer = async () => {
   try {
-    db.connect()
+    await db.connect()
+    await connectRedis()
     app.listen(port, () => {
       console.log(`Server is running in port ${port}`)
     })
